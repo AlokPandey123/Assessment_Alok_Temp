@@ -1,0 +1,19 @@
+.no-data-container {
+    text-align: center; /* Center-align the message */
+    padding: 20px; /* Add padding for better spacing */
+    font-size: 18px; /* Make the font larger for readability */
+    color: gray; /* Use a subtle gray color for the text */
+    font-weight: 500; /* Add slight boldness */
+    background-color: #f7f7f7; /* Light background color to highlight the message */
+    border-radius: 8px; /* Rounded corners */
+    margin: 20px 0; /* Add margin to space it properly */
+  }
+  
+  mat-card {
+    margin-top: 20px; /* Add margin at the top for proper spacing */
+  }
+  
+  mat-card-content {
+    padding: 20px; /* Add padding inside the card */
+  }
+  

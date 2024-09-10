@@ -1,0 +1,50 @@
+/* Ensure the form fields and card have appropriate spacing */
+mat-form-field {
+  width: 100%;
+}
+
+mat-card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+
+/* Adjust button styling */
+button.mat-raised-button {
+  margin-top: 16px;
+}
+
+mat-card-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  list-style: 23.6px;
+}
+
+.EntryCantiner {
+  background-color: rgb(201, 204, 204);
+  width: 100%;
+  padding: 15px 10px; /* Ensure enough space inside the container */
+  margin: 10px 0; /* Add margin to prevent elements cutting off the bottom */
+  border-radius: 20px; /* Rounded corners for all sides */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box; /* Ensure padding is inside the box model */
+  overflow: hidden; /* Prevent any overflow */
+}
+
+.EntryCantiner button.mat-icon-button {
+  background-color: rgb(201, 204, 204);
+
+  border-radius: 0; /* Remove border-radius for the delete button */
+  outline: none;
+  border: none;
+}
+
+.EntryCantiner mat-list-item {
+  margin-bottom: 0; /* Ensure no extra margin that might cut off the bottom */
+}
+

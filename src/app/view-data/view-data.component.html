@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-content>
+    <!-- Display the chart if data is available -->
+    <div *ngIf="dataEntries.length > 0">
+      <canvas baseChart
+        [data]="chartData"
+        [options]="chartOptions"
+        chartType="line">
+      </canvas>
+    </div>
+
+    <!-- Display the message if no data is available -->
+    <div *ngIf="dataEntries.length === 0" class="no-data-container">
+      <p>No data to display</p>
+    </div>
+  </mat-card-content>
+</mat-card>

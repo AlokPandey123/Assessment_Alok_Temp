@@ -1,0 +1,62 @@
+<div class="container mt-5">
+  <mat-card class="p-4">
+    <mat-card-header>
+      <mat-card-title>Add Data</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="dataForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+        <mat-form-field appearance="outline" class="mb-3">
+          <mat-label>Date and Time</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="datetime" placeholder="Choose a date" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="dataForm.get('datetime')?.hasError('required')">
+            Date and time is required
+          </mat-error>
+          <mat-error *ngIf="dataForm.get('datetime')?.hasError('futureDate')">
+            Date and time must be in the past
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="mb-3">
+          <mat-label>Temperature (°C)</mat-label>
+          <input matInput formControlName="temperature" type="number" placeholder="Enter temperature" />
+          <mat-error *ngIf="dataForm.get('temperature')?.hasError('required')">
+            Temperature is required
+          </mat-error>
+          <mat-error *ngIf="dataForm.get('temperature')?.hasError('min')">
+            Temperature must be at least -50°C
+          </mat-error>
+          <mat-error *ngIf="dataForm.get('temperature')?.hasError('max')">
+            Temperature cannot exceed 50°C
+          </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="dataForm.invalid">
+          Add Data
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="mt-4">
+    <mat-card-header>
+      <mat-card-title>Data Entries</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-divider *ngFor="let entry of dataEntries; let i = index"></mat-divider>
+        <mat-list-item *ngFor="let entry of dataEntries; let i = index" style="margin-top: 10px;">
+          <div class="EntryCantiner">
+            <!-- Content on the left -->
+          <span>{{ entry.datetime | date: 'short' }} - {{ entry.temperature }} °C</span>
+          <!-- Remove button on the right -->
+          <button mat-icon-button (click)="removeEntry(i)" style="border: none; background: rgb(201, 204, 204);">
+            <mat-icon style="color: rgb(27, 25, 25); background: rgb(201, 204, 204);">delete</mat-icon>
+          </button>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
